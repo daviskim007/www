@@ -33,7 +33,7 @@ if($token){
         $fb_id = $get_data['id'];
         echo $fb_id;
 
-        $sql = "INSERT INTO SESSIONS (session, facebook_id,time_millisecond) VALUES ('$session','$fb_id',0)";
+        $sql = "INSERT INTO SESSIONS (session, facebook_id, time_millisecond) VALUES ('$session','$fb_id',0)";
         if(!mysqli_query($GLOBALS['con'],$sql)){
 
             die("Error in query: ".mysqli_error($con));
@@ -41,7 +41,7 @@ if($token){
                 $result[] = array(
                     'data' => $session
 
-                );
+                )
                 echo json_encode($result);
 
 
