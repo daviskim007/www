@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memory game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Fugaz+One&display=swap" rel="stylesheet">
+
+</head>  
+
+<body>
+	<div class="intro-popin-container">
+		<div class="intro-popin">
+			<div class="play-button-container">
+<!--				closeIntroPopin-->
+<!--				facebookLogin()-->
+				<div class="play-button" onclick="closeIntroPopin()">PLAY</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="container">
+
+
+		<div class="tab-container">
+			<div class="tabbut">	
+				<div class="tab-button tab-active" id="but-game" onclick = "openGame()">GAME</div>
+
+			</div>
+			<div class="tabbut">
+				<div class="tab-button" id="but-highscore" onclick="openHighscore()">HIGH SCORE</div>
+			</div>
+
+		</div>
+		<div class="game-container">
+			<div class="timer">
+
+			</div>
+			<div class="card-container">
+
+			</div>
+
+			<div class="game-finish">
+				<br><br>
+				<span class="congrats">Congratulations</span><br>
+				<span class="congrats-sub">You finished the game in</span><br>
+
+					<div class="timer">
+
+					</div>
+
+			</div>
+
+		</div>
+		<div class="highscore-container">
+				The best scores of the memory game!
+		</div>
+
+	</div>
+
+</body>
+</html>

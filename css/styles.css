@@ -1,0 +1,231 @@
+/*nesseary styles in this document*/
+
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+.container{
+	width:800px;
+	margin:auto;
+}
+
+.tab-container{
+	height:50px;
+}
+
+.tabbut{
+	width:50%;
+	float: left;
+	padding: 2px;
+	box-sizing: border-box;
+}
+.tab-button{
+	width: 100%;
+	background-color: #AAA;
+	height: 30px;
+	margin: auto;
+	padding-top: 10px;
+	font-family: 'Fugaz One', cursive;
+	color: #222;
+	cursor: pointer;
+	text-align: center;
+}
+
+.tab-button:hover{
+	background-color: #CCC;
+	color: #222;
+}
+
+.tab-active{
+	background-color: #fAA!important;
+	color: #555!important;
+	/*ADD !important. because previous style is overriding this one*/
+}
+
+.game-container{
+	float: left;
+	width: 100%;
+	background-color: #eee;
+	padding-bottom: 50px;
+	min-height: 500px;
+	margin: auto;
+}
+
+.timer{
+	float: left;
+	width: 100%;
+	height: 50px;
+	font-family: 'Fugaz One', cursive;
+	font-size: 2em;
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 20px;
+
+}
+
+.game-finish{
+	display: none;
+	position: absolute;
+	z-index: 20;
+	width: 800px;
+	top: 50px;
+	background-color: #fff;
+	text-align: center;
+	height: 100%;
+
+}
+
+.congrats{
+	font-family: Arial, serif;
+	font-weight: bold;
+	font-size: 3em;
+}
+
+.congrats-sub{
+	font-family: Arial, serif;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.card-container{
+	margin:auto;
+	width: 600px;
+	min-height: 500px;
+}
+
+.highscore-container{
+	display: none;	
+}
+
+
+.intro-popin-container{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 10;
+	background-color: rgba(0,0,0,0,7);
+}
+
+.intro-popin{
+	width: 600px;
+	margin: auto;
+	position: relative;
+	height: 60%;
+	background-color: #fff;
+	background-image: url("../img/background-image.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-top: 5%;
+}
+
+.play-button-container{
+	width: 100%;
+	height: 45px;
+	padding: 0px;
+	position: absolute;
+	bottom: 20px;
+	box-sizing: border-box;
+	text-align: center;
+
+}
+
+.play-button{
+	width: 50%;
+	height: 30px;
+	background-color: #E91E63;
+	margin: auto;
+	color: #fff;
+	padding-top: 10px;
+	font-family: 'Fugaz One', cursive;
+	cursor: pointer;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  float: left;
+  width: 120px;
+  height: 120px;
+  padding: 2px;
+  box-sizing: border-box;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*Click on one of the cards will apply this rotate 180 class into it*/
+.rotate180{
+	transform: rotateY(180deg);
+	/*user would click on one of the cards is to put a border inside it.*/
+	border:5px solid #A55;
+	box-sizing: border-box;
+	-webkit-transform: rotateY(180deg);
+}
+
+
+/* Position the front and back side */
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+ 	-webkit-backface-visibility: hidden;
+ 	-moz-backface-visibility: hidden;
+
+ 	background-color: #fff;
+ 	border-radius: 5px;
+
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+ 	background-color: #fff;
+	background-image: url("../img/cardback.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* Style the back side */
+.flip-card-back {
+  	background-color: #fff;
+  	transform: rotateY(180deg);
+}
+
+@media only screen and (max-width: 799px){
+	.container	{
+		width: 100%;
+	}
+
+	.intro-popin{
+		width: 100%;
+		height: 49%;
+	}
+	.card-container{
+		width: 100%;
+	}
+	
+	.flip-card{
+		width: 25vw;
+		height: 25vw;
+	}
+
+}
+	
