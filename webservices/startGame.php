@@ -11,7 +11,7 @@ if($token){
         $response = $fb->get('/me?fields=id,name', $token);
         $get_data = $response->getDecodedBody();
         $fb_id = $get_data['id'];
-        echo $fb_id
+        echo $fb_id;
 
     } 	catch(Facebook\Exceptions\FacebookResponseException $e) {
         echo 'Graph returned an error: ' . $e->getMessage();
