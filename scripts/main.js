@@ -10,6 +10,7 @@ var matchCount = 0;
 
 var FB_TOKEN;
 var URL = "https://broccolisys.com/webservices/";
+var gameSession ="";
 
 function openGame(){
 	console.log("GAME");
@@ -117,6 +118,10 @@ function selectCard(id,current){
 
 					setTimeout(function(){$(".game-finish").show()},1000);
 
+					var newTime = new Date().getTime();
+					var timeDifferenceMilli = newTime - gameStartTime;
+
+					saveGame(timeDifferenceMilli, currentTime);
 				}
 
 				setTimeout(function(){
@@ -137,8 +142,26 @@ function selectCard(id,current){
 }
 
 
+function saveGame(timeDifferenceMilli, currentTime) {
+
+	console.log("SAVING GAME");
+
+	$.ajax({
+		type:"POST",
+		data:{'session' : gameSession, 'millisec': timeDifferenceMilli, 'time':currentTime},
+		url : "https://broccolisys.com/webservices/saveGame.php",
+		// url: URL + "startGame.php",
+		success : function(data){
+			console.log(data);
+		},
+		error : function(data){
+			console.log(data)
+		}
+	})
+}
+
 function startGameServer(){
-	console.log("Starting game on Server")
+	console.log("Starting game on Server");
 	$.ajax({
 		type:"POST",
 		data:{'token' : FB_TOKEN},
@@ -146,6 +169,9 @@ function startGameServer(){
 		// url: URL + "startGame.php",
 		success : function(data){
 			console.log(data);
+			r = JSON.parse(data);
+			gameSession = r[0].data;
+			console.log("gameSession",gameSession);
 		},
 		error : function(data){
 			console.log(data)
