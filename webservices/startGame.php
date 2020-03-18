@@ -41,7 +41,7 @@ if($token){
                 $result[] = array(
                     'data' => $session
 
-                )
+                );
                 echo json_encode($result);
 
 
