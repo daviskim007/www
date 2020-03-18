@@ -209,6 +209,26 @@ body{
   	transform: rotateY(180deg);
 }
 
+.save-message{
+	width: 100%;
+	float: left;
+	display: none;
+	margin-bottom: 15px;
+
+}
+
+.save-button{
+	width: 90%;
+	margin: auto;
+	height: 50px;
+	background-color: #E91E63;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 1.3em;
+	cursor: pointer;
+
+}
+
 @media only screen and (max-width: 799px){
 	.container	{
 		width: 100%;

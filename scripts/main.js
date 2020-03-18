@@ -121,6 +121,10 @@ function selectCard(id,current){
 					var newTime = new Date().getTime();
 					var timeDifferenceMilli = newTime - gameStartTime;
 
+					if(!FB_TOKEN){
+						$('.save-message').show();
+					}
+
 					saveGame(timeDifferenceMilli, currentTime);
 				}
 
@@ -150,6 +154,24 @@ function saveGame(timeDifferenceMilli, currentTime) {
 		type:"POST",
 		data:{'session' : gameSession, 'millisec': timeDifferenceMilli, 'time':currentTime},
 		url : "https://broccolisys.com/webservices/saveGame.php",
+		// url: URL + "startGame.php",
+		success : function(data){
+			console.log(data);
+		},
+		error : function(data){
+			console.log(data)
+		}
+	})
+}
+
+function savePlayer() {
+
+	console.log("SAVING Player");
+
+	$.ajax({
+		type:"POST",
+		data:{'session' : gameSession, 'token': FB_TOKEN},
+		url : "https://broccolisys.com/webservices/savePlayer.php",
 		// url: URL + "startGame.php",
 		success : function(data){
 			console.log(data);
@@ -257,6 +279,8 @@ function getUserDetails() {                      // Testing Graph API after logi
 function facebookLogin() {
 	FB.login(function (response) {
 		if (response.status === 'connected') {
+			FB_TOKEN = response.autoResponse.accessToken;
+			savePlayer();
 			// Logged into your webpage and Facebook.
 		} else {
 			// The person is not logged into your webpage or we are unable to tell.
