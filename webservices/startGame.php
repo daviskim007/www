@@ -31,7 +31,6 @@ if($token){
         $response = $fb->get('/me?fields=id,name', $token);
         $get_data = $response->getDecodedBody();
         $fb_id = $get_data['id'];
-        echo $fb_id;
 
         $sql = "INSERT INTO SESSIONS (session, facebook_id, time_millisecond) VALUES ('$session','$fb_id',0)";
         if(!mysqli_query($GLOBALS['con'],$sql)){
