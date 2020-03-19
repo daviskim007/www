@@ -160,7 +160,7 @@ function getHighScores() {
 				var user = response[index];
 				// Item with the information for each player and profile row
 				var item = "<div class ='profile-row'><div class='profile-image' style='background-image:url("+user.userPic+")'></div>" +
-					"<div class='profile-name'>"+user.fullname+"</div><div class='profile-name'>"+user.time+"</div></div>";
+					"<div class='profile-name'>"+user.fullname+"</div><div class='profile-time'>"+user.time+"</div></div>";
 
 				$('.highscores').append(item);
 				// Display each response in a different row
