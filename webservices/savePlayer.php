@@ -1,8 +1,12 @@
 <?php
 
-function console_log($data){
+function Console_log($data){
     echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
 }
+$testVal = "테스트 데이터";
+Console_log($testVal);
+
+
 
 
 ini_set('display_errors',1);
@@ -13,6 +17,7 @@ $token = $_POST['token'];
 console_log('000');
 $session = $_POST['session'];
 console_log('0000');
+
 if($token){
     try {
     // Returns a Facebook , FacebookResponse object
@@ -99,3 +104,4 @@ console_log('02112000');
                */
 }
 
+?>
