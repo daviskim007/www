@@ -1,10 +1,11 @@
 <?php
+
 function console_log($data){
     echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
 }
 
 
-ini_set('display_errors','1');
+ini_set('display_errors',1);
 console_log('0');
 include "connection.php";
 console_log('00');
