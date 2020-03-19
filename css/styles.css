@@ -229,6 +229,18 @@ body{
 
 }
 
+.highscore-title{
+	display: block;
+	float: left;
+	font-size: 2em;
+	font-family: 'Fugaz One', cursive;
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 @media only screen and (max-width: 799px){
 	.container	{
 		width: 100%;

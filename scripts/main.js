@@ -159,7 +159,7 @@ function getHighScores() {
 			for (var index=0; index<response.length; index++){
 				var user = response[index];
 				// Item with the information for each player and profile row
-				var item = "<div class ='profile-row><div class='profile-image' style='background-image:url("+user.userPic+")></div>" +
+				var item = "<div class ='profile-row'><div class='profile-image' style='background-image:url("+user.userPic+")></div>" +
 					"<div class='profile-name'>"+user.fullname+"</div><div class='profile-name'>"+user.time+"</div></div>";
 
 				$('.highscores').append(item);
