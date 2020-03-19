@@ -7,9 +7,8 @@ $testVal = "테스트 데이터";
 Console_log($testVal);
 
 
-
-
-ini_set('display_errors',1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 console_log('0');
 include "connection.php";
 console_log('00');
