@@ -152,12 +152,11 @@ function saveGame(timeDifferenceMilli, currentTime) {
 
 	$.ajax({
 		type:"POST",
-		data:{'session' : gameSession, 'millisec': timeDifferenceMilli, 'time':currentTime},
+		data:{'session' : gameSession, 'millisec': timeDifferenceMilli, 'time':currentTime, 'token': FB_TOKEN},
 		url : "https://broccolisys.com/webservices/saveGame.php",
 		// url: URL + "startGame.php",
 		success : function(data){
 			console.log(data);
-			console.log("0xx");
 		},
 		error : function(data){
 			console.log(data)
