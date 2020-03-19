@@ -45,6 +45,7 @@ if($token){
 
         }else{
         //define my SQL statement in a variable
+        console_log('0120');
             $sql_insert = "INSERT INTO PLAYERS (Facebook_id, name, surname, email, highscore_milli, highscore_display) VALUES ('$fb_id','$first_name','$last_name','$email','$score_time','$time')";
         //run our SQL statement here and if it's not okay an error message will be displayed.
             if(!mysqli_query($con, $sql_insert)){
@@ -79,7 +80,7 @@ if($token){
         exit;
     }
 }else{
-
+console_log('02112000');
 /*
      $sql = "INSERT INTO SESSIONS (session, facebook_id, time_millisecond) VALUES ('$session','',0)";
            if(!mysqli_query($GLOBALS['con'],$sql)){

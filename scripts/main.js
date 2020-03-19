@@ -171,9 +171,8 @@ function savePlayer() {
 
 	$.ajax({
 		type:"POST",
-		data:{'session' : gameSession, 'token': FB_TOKEN},
+		data:{'session' : gameSession, 'token' : FB_TOKEN},
 		url : "https://broccolisys.com/webservices/savePlayer.php",
-		// url: URL + "startGame.php",
 		success : function(data){
 			console.log(data);
 			console.log("011");
