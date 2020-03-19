@@ -1,33 +1,31 @@
 <?php
-
 function Console_log($data){
     echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
 }
 $testVal = "테스트 데이터";
 Console_log($testVal);
 
-
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-console_log('0');
+Console_log('0');
 include "connection.php";
-console_log('00');
+Console_log('00');
 $token = $_POST['token'];
-console_log('000');
+Console_log('000');
 $session = $_POST['session'];
-console_log('0000');
+Console_log('0000');
 
 if($token){
     try {
-    // Returns a Facebook , FacebookResponse object
-        console_log('1');
+        // Returns a Facebook , FacebookResponse object
+        Console_log('1');
         $response = $fb->get('/me?fields=id,first_name, last_name, email', $token);
         $get_data = $response->getDecodedBody();
         $fb_id = $get_data['id'];
         $first_name = mysqli_real_escape_string($con, $get_data['first_name']);
         $last_name = mysqli_real_escape_string($con, $get_data['last_name']);
         $email = $get_data['email'];
-        console_log('2');
+        Console_log('2');
         /* what we need to do is to get the time in millisecond again from the seesion table, as well as a display time
         so that we can insert it in the players table*/
         //  This is a sql statement
@@ -49,10 +47,10 @@ if($token){
 
 
         }else{
-        //define my SQL statement in a variable
-        console_log('0120');
+            //define my SQL statement in a variable
+            Console_log('0120');
             $sql_insert = "INSERT INTO PLAYERS (Facebook_id, name, surname, email, highscore_milli, highscore_display) VALUES ('$fb_id','$first_name','$last_name','$email','$score_time','$time')";
-        //run our SQL statement here and if it's not okay an error message will be displayed.
+            //run our SQL statement here and if it's not okay an error message will be displayed.
             if(!mysqli_query($con, $sql_insert)){
                 // the message that is being returned from the error
                 die('Error in query',mysqli_connect_error());
@@ -85,22 +83,20 @@ if($token){
         exit;
     }
 }else{
-console_log('02112000');
-/*
-     $sql = "INSERT INTO SESSIONS (session, facebook_id, time_millisecond) VALUES ('$session','',0)";
-           if(!mysqli_query($GLOBALS['con'],$sql)){
+    console_log('02112000');
+    /*
+         $sql = "INSERT INTO SESSIONS (session, facebook_id, time_millisecond) VALUES ('$session','',0)";
+               if(!mysqli_query($GLOBALS['con'],$sql)){
 
-               die("Error in query: ".mysqli_error($con));
-               }else{
-                   $result[] = array(
-                       'data' => $session
+                   die("Error in query: ".mysqli_error($con));
+                   }else{
+                       $result[] = array(
+                           'data' => $session
 
-                   );
-                   echo json_encode($result);
+                       );
+                       echo json_encode($result);
 
 
-               }
-               */
+                   }
+                   */
 }
-
-?>
