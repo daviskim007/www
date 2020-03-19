@@ -2,7 +2,7 @@
 
 include "connection.php";
 
-$token = $_POST{'token'};
+$token = $_POST['token'];
 $fb_id = "";
 
 // generate-random-alphanumeric-strings-in-php-

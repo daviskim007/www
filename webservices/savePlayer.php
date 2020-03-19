@@ -3,8 +3,8 @@ ini_set('display_errors',1);
 
 include "connection.php";
 
-$token = $_POST('token');
-$session = $_POST('session');
+$token = $_POST['token'];
+$session = $_POST['session'];
 
 if($token){
     try {

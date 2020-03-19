@@ -4,9 +4,9 @@
 
 include "connection.php";
 
-$millisec = $_POST{'millisec'};
-$session = $_POST{'session'};
-$time = $_POST{'time'};
+$millisec = $_POS['millisec'];
+$session = $_POST['session'];
+$time = $_POST['time'];
 
 
 $sql = "UPDATE SESSIONS SET time_millisecond = '$millisec', time_display = '$time' WHERE session = '$session'";
