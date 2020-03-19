@@ -46,7 +46,7 @@ function initialise(){
 
 	}
 
-	/*Kick it after 1000 ms. When we are addingall the cards dynamically, it will take a small lapse of time
+	/*Kick it after 1000 ms. When we are adding all the cards dynamically, it will take a small lapse of time
 	* before all the image are loaded. So it's a good thing that we put a small delay here so that the user have
 	* some time before starting the game*/
 	setTimeout(function(){startTimer(),1000})
@@ -214,6 +214,7 @@ function shuffle(arra1) {
 		temp = arra1[ctr];
 		arra1[ctr] = arra1[index];
 		arra1[index] = temp;
+
 	}
 	return arra1;
 }
@@ -279,7 +280,7 @@ function getUserDetails() {                      // Testing Graph API after logi
 function facebookLogin() {
 	FB.login(function (response) {
 		if (response.status === 'connected') {
-			FB_TOKEN = response.autoResponse.accessToken;
+			FB_TOKEN = response.authResponse.accessToken;
 			savePlayer();
 			// Logged into your webpage and Facebook.
 		} else {
