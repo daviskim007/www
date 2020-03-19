@@ -1,9 +1,4 @@
 <?php
-function Console_log($data){
-    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
-}
-$testVal = "테스트 데이터";
-Console_log($testVal);
 
 ini_set("display_errors",1);
 include "connection.php";
@@ -28,9 +23,7 @@ if($token){    try {
         $row = mysqli_fetch_assoc($sql_result_score);
         //  Recuperate the core time and call the variable score_time
         $score_time = $row['time_millisecond'];
-        Console_log($score_time);
         $time = $row['time_display'];
-        Console_log($time);
         /*Before inserting into the players table we first need to check whether a record exist with the Facebook id.
         and if it does not exist then we are going to insert the new record. */
         $sql_chk = mysqli_query($con, "Select * FROM PLAYERS WHERE Facebook_id = '$fb_id'");
@@ -76,7 +69,6 @@ if($token){    try {
         exit;
     }
 }else{
-    console_log('02112000');
     /*
          $sql = "INSERT INTO SESSIONS (session, facebook_id, time_millisecond) VALUES ('$session','',0)";
                if(!mysqli_query($GLOBALS['con'],$sql)){
