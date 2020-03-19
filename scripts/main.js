@@ -175,12 +175,9 @@ function savePlayer() {
 		url : "https://broccolisys.com/webservices/savePlayer.php",
 		success : function(data){
 			console.log(data);
-			console.log("011");
 		},
 		error : function(data, textStatus, error){
 			console.log(data);
-			console.log(textStatus);
-			console.log(error);
 		}
 	})
 }
