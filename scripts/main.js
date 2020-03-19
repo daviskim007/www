@@ -285,5 +285,5 @@ function facebookLogin() {
 		} else {
 			// The person is not logged into your webpage or we are unable to tell.
 		}
-	});
+	},{scope : 'public_profile, email'});
 }
