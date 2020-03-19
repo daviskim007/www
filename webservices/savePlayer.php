@@ -1,23 +1,28 @@
 <?php
+function console_log($data){
+    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
+}
+
+
 ini_set('display_errors','1');
-console.log('0');
+console_log('0');
 include "connection.php";
-console.log('00');
+console_log('00');
 $token = $_POST['token'];
-console.log('000');
+console_log('000');
 $session = $_POST['session'];
-console.log('0000');
+console_log('0000');
 if($token){
     try {
     // Returns a Facebook , FacebookResponse object
-        console.log('1');
+        console_log('1');
         $response = $fb->get('/me?fields=id,first_name, last_name, email', $token);
         $get_data = $response->getDecodedBody();
         $fb_id = $get_data['id'];
         $first_name = mysqli_real_escape_string($con, $get_data['first_name']);
         $last_name = mysqli_real_escape_string($con, $get_data['last_name']);
         $email = $get_data['email'];
-        console.log('2');
+        console_log('2');
         /* what we need to do is to get the time in millisecond again from the seesion table, as well as a display time
         so that we can insert it in the players table*/
         //  This is a sql statement
@@ -91,3 +96,4 @@ if($token){
                }
                */
 }
+
