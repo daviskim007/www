@@ -162,7 +162,7 @@ function getHighScores() {
 				var item = "<div class ='profile-row><div class='profile-image' style='background-image:url("+user.userPic+")></div>" +
 					"<div class='profile-name'>"+user.fullname+"</div><div class='profile-name'>"+user.time+"</div></div>";
 
-				$('.highscore').append(item);
+				$('.highscores').append(item);
 				// Display each response in a different row
 				console.log(response[index])
 			}
