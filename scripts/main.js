@@ -22,6 +22,7 @@ function openGame(){
 
 function openHighscore(){
 	console.log("HIGHSCORE");
+	getHighScores();
 	$('.game-container').hide();
 	$('.highscore-container').show();
 	$('#but-game').removeClass("tab-active");
@@ -143,6 +144,52 @@ function selectCard(id,current){
 		}
 	}
 
+}
+
+/* Get high scores. This function is to clear the content of this high scores class so that each time you click on the
+high score button it is going to refresh the table*/
+function getHighScores() {
+	// Remove all the contents of the div
+	$('.highscores').empty();
+	// Call the getTopScores and we will wait for a response before proceeding to the next part.
+	getTopScores(function (response) {
+ 		// If we are getting any response then we are going to proceed with the next piece of code and in order to populate each row for
+		// each player we need to put a for loop and then add each row in the high score container.
+		if(response){
+			for (var index=0; index<response.length; index++){
+				var user = response[index];
+				// Item with the information for each player and profile row
+				var item = "<div class ='profile-row'><div class='profile-image' style='background-image:url("+user.userPic+")</div>" +
+					"<div class='profile-name'>"+user.fullname+"</div><div class='profile-name'>"+user.time+"</div></div>";
+
+				$('.highscore').append(item);
+				// Display each response in a different row
+				console.log(response[index])
+			}
+		}
+
+	})
+}
+
+// Call the web service just like we have done here and do the same for calling the high score web service.
+function getTopScores(callback) {
+
+	console.log("HIGHSCORES");
+
+	$.ajax({
+		type:"POST",
+		data:{},
+		url : "https://broccolisys.com/webservices/topScores.php",
+		// url: URL + "startGame.php",
+		success : function(data){
+			console.log(data);
+			// Send back the data that we have received from here.
+			callback(JSON.parse(data))
+		},
+		error : function(data){
+			console.log(data)
+		}
+	})
 }
 
 
