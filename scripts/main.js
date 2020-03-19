@@ -177,9 +177,10 @@ function savePlayer() {
 			console.log(data);
 			console.log("011");
 		},
-		error : function(data){
+		error : function(data, textStatus, error){
 			console.log(data);
-			console.log("022");
+			console.log(textStatus);
+			console.log(error);
 		}
 	})
 }
