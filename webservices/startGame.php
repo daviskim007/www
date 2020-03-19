@@ -1,5 +1,12 @@
 <?php
 
+function Console_log($data){
+    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
+}
+$testVal = "테스트 데이터2";
+Console_log($testVal);
+
+
 include "connection.php";
 
 $token = $_POST['token'];
