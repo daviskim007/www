@@ -1,17 +1,8 @@
 <?php
 
-
-function Console_log($data){
-    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
-}
-$testVal = "테스트 데이터3";
-Console_log($testVal);
-
-
-
 include "connection.php";
 
-$millisec = $_POS['millisec'];
+$millisec = $_POST['millisec'];
 $session = $_POST['session'];
 $time = $_POST['time'];
 

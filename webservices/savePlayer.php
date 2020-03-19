@@ -1,19 +1,10 @@
 <?php
-function Console_log($data){
-    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
-}
-$testVal = "테스트 데이터";
-Console_log($testVal);
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-Console_log('0');
+ini_set("display_errors",1);
 include "connection.php";
-Console_log('00');
 $token = $_POST['token'];
-Console_log('000');
 $session = $_POST['session'];
-Console_log('0000');
+
 
 if($token){
     try {
@@ -53,7 +44,7 @@ if($token){
             //run our SQL statement here and if it's not okay an error message will be displayed.
             if(!mysqli_query($con, $sql_insert)){
                 // the message that is being returned from the error
-                die('Error in query',mysqli_connect_error());
+                die('Error in query: '.mysqli_connect_error());
             }
         }
 
@@ -100,6 +91,3 @@ if($token){
                    }
                    */
 }
-
-
-
