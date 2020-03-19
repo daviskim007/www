@@ -1,4 +1,9 @@
 <?php
+function Console_log($data){
+    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
+}
+$testVal = "테스트 데이터";
+Console_log($testVal);
 
 ini_set("display_errors",1);
 include "connection.php";
@@ -17,14 +22,15 @@ if($token){    try {
         /* what we need to do is to get the time in millisecond again from the seesion table, as well as a display time
         so that we can insert it in the players table*/
         //  This is a sql statement
-        $sqlScore = ("Select * FROM SESSIONS where session = '$session'");
+        $sqlScore = ("Select * FROM SESSIONS WHERE session = '$session'");
         $sql_result_score = mysqli_query($con, $sqlScore);
         // Need more visible here
         $row = mysqli_fetch_assoc($sql_result_score);
         //  Recuperate the core time and call the variable score_time
         $score_time = $row['time_millisecond'];
+        Console_log($score_time);
         $time = $row['time_display'];
-
+        Console_log($time);
         /*Before inserting into the players table we first need to check whether a record exist with the Facebook id.
         and if it does not exist then we are going to insert the new record. */
         $sql_chk = mysqli_query($con, "Select * FROM PLAYERS WHERE Facebook_id = '$fb_id'");
