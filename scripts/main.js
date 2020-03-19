@@ -157,6 +157,7 @@ function saveGame(timeDifferenceMilli, currentTime) {
 		// url: URL + "startGame.php",
 		success : function(data){
 			console.log(data);
+			console.log("0xx");
 		},
 		error : function(data){
 			console.log(data)
@@ -175,9 +176,11 @@ function savePlayer() {
 		// url: URL + "startGame.php",
 		success : function(data){
 			console.log(data);
+			console.log("011");
 		},
 		error : function(data){
-			console.log(data)
+			console.log(data);
+			console.log("022");
 		}
 	})
 }
@@ -288,3 +291,4 @@ function facebookLogin() {
 		}
 	},{scope : 'public_profile, email'});
 }
+
