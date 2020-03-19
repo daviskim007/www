@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_assoc($sql_result)) {
         'time' => $row['highscore_display']
     );
 
-    $rank = $rank*1;
+    $rank = $rank+1;
 
 }
 
