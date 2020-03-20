@@ -198,7 +198,7 @@ function saveGame(timeDifferenceMilli, currentTime) {
 	var KEY = 'memorygame007007';
 	// Put the string which are only numbers for this case
 	var IV = '1234567890123412';
-	key = CryptoJS.enc.Utf8.parse(KEY); // Secret Key
+	var key = CryptoJS.enc.Utf8.parse(KEY); // Secret Key
 	var iv = CryptoJS.enc.Utf8.parse(IV); // Vector iv
 
 	var myData = {'session': gameSession,'millisec': timeDifferenceMilli, 'time':currentTime, 'token': FB_TOKEN };
