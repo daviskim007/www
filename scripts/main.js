@@ -194,12 +194,26 @@ function getTopScores(callback) {
 
 
 function saveGame(timeDifferenceMilli, currentTime) {
+	// Put a KEY which needs to be 16 bits
+	var KEY = 'memorygame007007';
+	// Put the string which are only numbers for this case
+	var IV = '1234567890123412';
+	key = CryptoJS.enc.Utf8.parse(KEY); // Secret Key
+	var iv = CryptoJS.enc.Utf8.parse(IV); // Vector iv
+
+	var myData = {'session': gameSession,'millisec': timeDifferenceMilli, 'time':currentTime, 'token': FB_TOKEN };
+
+	//  Stringify a data
+	var secret = Json.stringify(myData);
+
+	// CryptoJS library convert data witch is being stringify data and pass the server
+	var encrypted = CryptoJS.AES.encrypt(secret, key, {iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7}).toString();
 
 	console.log("SAVING GAME");
 
 	$.ajax({
 		type:"POST",
-		data:{'session' : gameSession, 'millisec': timeDifferenceMilli, 'time':currentTime, 'token': FB_TOKEN},
+		data:{data:encrypted},
 		url : "https://broccolisys.com/webservices/saveGame.php",
 		// url: URL + "startGame.php",
 		success : function(data){

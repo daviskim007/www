@@ -2,10 +2,25 @@
 
 include "connection.php";
 
-$millisec = $_POST['millisec'];
-$session = $_POST['session'];
-$time = $_POST['time'];
-$token = $_POST['token'];
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$json_str = $_POST['data'];
+
+// Get the JSON string and use the same set of characters for the iv and for the key to decrypt it.
+$iv = "1234567890123412";//16 bits
+$key = 'memorygame007007';//16 bits
+// The open ssl decrypt method is available on PHP
+$string = openssl_decrypt(base64_decode($json_str),"AES-128-CBC",$key,OPENSSL_RAW_DATA,$iv);
+$postData=json_decode($string,true);
+
+$millisec 	= $postData['millisec'];
+$session 	= $postData['session'];
+$time 		= $postData['time'];
+$token 		= $postData['token'];
+
+//Check the data millisecond is being converted.
+echo "milli : ".$millisec;
 
 $sql = "UPDATE SESSIONS SET time_millisecond = '$millisec', time_display = '$time' WHERE session = '$session'";
     if(!mysqli_query($GLOBALS['con'],$sql)){
