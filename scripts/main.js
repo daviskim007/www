@@ -192,7 +192,6 @@ function getTopScores(callback) {
 	})
 }
 
-
 function saveGame(timeDifferenceMilli, currentTime) {
 	// Put a KEY which needs to be 16 bits
 	var KEY = 'memorygame007007';
