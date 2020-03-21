@@ -201,10 +201,10 @@ function saveGame(timeDifferenceMilli, currentTime) {
 	var key = CryptoJS.enc.Utf8.parse(KEY); // Secret Key
 	var iv = CryptoJS.enc.Utf8.parse(IV); // Vector iv
 
-	var myData = {'session': gameSession,'millisec': timeDifferenceMilli, 'time':currentTime, 'token': FB_TOKEN };
+	var myData = {'session': gameSession, 'millisec': timeDifferenceMilli, 'time':currentTime, 'token': FB_TOKEN };
 
 	//  Stringify a data
-	var secret = Json.stringify(myData);
+	var secret = JSON.stringify(myData);
 
 	// CryptoJS library convert data witch is being stringify data and pass the server
 	var encrypted = CryptoJS.AES.encrypt(secret, key, {iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7}).toString();
